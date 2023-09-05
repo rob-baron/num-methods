@@ -1,19 +1,33 @@
-# moc-templates
+# num-methods
+## Introduction
+I am using some simple numerical methods to form some ideas that I have
+had and want to try in practice.
 
-This repository serves two purposes:
+For this I am using a combination of C/C++ as I am trying to explain
+what is going on and the audience (some of my friends) have a easier
+time of understanding straight C code than C++.
 
-- It may be used as a template repository when creating new repositories in the [CCI-MOC][] organization.
-- It is the canonical location of the `LICENSE` and `CONTRIBUTING.md` files.
+Of course, to convert to C++ is straight forward as any function
+which has a structure as a parameter (usually the first parameter)
+is a method of that class.
 
-[cci-moc]: https://github.com/CCI-MOC/
+## Comments
 
-## Contributing
-
-We'd love to have you contribute! Please refer to our [contribution
-guidelines](CONTRIBUTING.md) for details.
+Your welcome to comment on anything 
 
 ## License
 
 [Apache 2.0 License](LICENSE).
 
 The code is provided as-is with no warranties.
+
+# library functions
+
+# docker containers
+## -prod
+## -test
+## -dev
+
+
+
+
