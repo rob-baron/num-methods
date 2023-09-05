@@ -1,0 +1,27 @@
+FROM nml:latest
+
+ENV EXTRA_BAZEL_ARGS="--tool_java_runtime_version=local_jdk"
+
+RUN mkdir /app/src/gtest && \
+    cd /app/src && \
+    apt-get -y install git build-essential openjdk-11-jdk python3 zip unzip cmake gzip tar curl wget && \
+    git clone https://github.com/google/googletest.git && \
+    mkdir /app/src/bazel && \
+    cd /app/src/bazel && \
+    wget https://github.com/bazelbuild/bazel/releases/download/6.3.2/bazel-6.3.2-dist.zip && \
+    unzip bazel-6.3.2-dist.zip && \
+    bash ./compile.sh . && \
+    mv ./output/bazel /app/bin && \
+    cd ../googletest && \
+    cmake . && \
+    make all && \
+    make install
+
+COPY ../gtest/test_pi.cpp /app/src/gtest/test_pi.cpp
+COPY ../gtest/Makefile /app/src/gtest/Makefile
+
+RUN cd /app/src/gtest && \
+    make all && \
+    cp test_pi /app/bin/test_pi
+
+ENTRYPOINT /app/bin/test_pi

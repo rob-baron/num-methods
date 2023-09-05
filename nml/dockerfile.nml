@@ -1,0 +1,20 @@
+FROM ubuntu:22.04
+
+RUN apt-get update && \
+    apt-get -y install make g++ gcc && \
+    mkdir /app && \
+    mkdir /app/src && \
+    mkdir /app/src/h && \
+    mkdir /app/src/lib && \
+    mkdir /app/bin && \
+    mkdir /app/lib
+
+ENV PATH="${PATH}:/app/bin"
+
+COPY ../num_methods/monte_carlo.cpp /app/src/lib
+COPY ../num_methods/monte_carlo.hpp /app/src/h
+COPY ../num_methods/Makefile /app/src/lib
+
+RUN cd /app/src/lib && \
+    make all && \
+    mv num_methods.a /app/lib
