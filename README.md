@@ -1,7 +1,7 @@
 # num-methods
 ## Introduction
-I am using some simple numerical methods to form some ideas that I have
-had and want to try in practice.
+
+I am just writing this as an example for some friends of mine.
 
 For this I am using a combination of C/C++ as I am trying to explain
 what is going on and the audience (some of my friends) have a easier
